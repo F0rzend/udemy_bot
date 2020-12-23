@@ -1,0 +1,38 @@
+{
+    "525340304": {
+        "525340304": {
+            "state": null,
+            "data": {},
+            "bucket": {
+                "antiflood__unconfirmed_start": {
+                    "result": true,
+                    "rate_limit": 0.1,
+                    "called_at": 1608575870.278055,
+                    "delta": 27.055846691131592,
+                    "exceeded": 1
+                },
+                "antiflood__input_code_validate": {
+                    "result": true,
+                    "rate_limit": 0.1,
+                    "called_at": 1608575881.4914193,
+                    "delta": 33.330652952194214,
+                    "exceeded": 1
+                },
+                "antiflood__get_codes_handler": {
+                    "result": true,
+                    "rate_limit": 0.1,
+                    "called_at": 1608737605.760156,
+                    "delta": 1022.4936435222626,
+                    "exceeded": 1
+                },
+                "antiflood__confirmed_start": {
+                    "result": true,
+                    "rate_limit": 0.1,
+                    "called_at": 1608737846.8804743,
+                    "delta": 65.82147765159607,
+                    "exceeded": 1
+                }
+            }
+        }
+    }
+}
