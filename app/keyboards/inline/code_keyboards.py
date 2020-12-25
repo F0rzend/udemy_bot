@@ -36,7 +36,7 @@ async def generate_code_keyboard(code: ReferralCode) -> InlineKeyboardMarkup:
             ],
             [
                 InlineKeyboardButton(
-                    text='Назад',
+                    text='Список кодов',
                     callback_data='get_codes',
                 )
             ]
@@ -44,3 +44,14 @@ async def generate_code_keyboard(code: ReferralCode) -> InlineKeyboardMarkup:
     )
 
     return mk
+
+new_code_markup = InlineKeyboardMarkup(
+    inline_keyboard=[
+        [
+            InlineKeyboardButton(
+                text='Создать реферальный код',
+                callback_data='generate_code'
+            )
+        ]
+    ]
+)

@@ -51,6 +51,15 @@ class User(TimedBaseModel):
             else:
                 await user.update(is_superuser=True).apply()
 
+    @staticmethod
+    async def remove_superusers(superuser_ids: typing.Union[typing.List[typing.Union[str, int]], typing.Union[str, int]]):
+        if isinstance(superuser_ids, str):
+            superuser_ids = [superuser_ids]
+
+        for user_id in map(int, superuser_ids):
+            user = await User.get(user_id)
+            await user.update(is_superuser=False).apply()
+
 
 class UserRelatedMixin:
     user_id = db.Column(
