@@ -1,3 +1,4 @@
+import typing
 from aiogram.utils.markdown import hlink, hbold
 
 from sqlalchemy.sql import Select, expression
@@ -37,6 +38,18 @@ class User(TimedBaseModel):
             f'🍻 {access}',
         ))
         return preview
+
+    @staticmethod
+    async def add_superusers(superuser_ids: typing.Union[typing.List[typing.Union[str, int]], typing.Union[str, int]]):
+        if isinstance(superuser_ids, str):
+            superuser_ids = [superuser_ids]
+
+        for user_id in map(int, superuser_ids):
+            user = await User.get(user_id)
+            if not user:
+                await User.create(id=user_id, is_superuser=True)
+            else:
+                await user.update(is_superuser=True).apply()
 
 
 class UserRelatedMixin:

@@ -13,7 +13,7 @@ from app.models import base, User
 async def on_startup(dispatcher: Dispatcher):
     await base.connect(config.POSTGRES_URI)
 
-    await (await User.get(int(config.SUPERUSER_IDS[0]))).update(is_superuser=False, code=None, referral_id=None).apply()
+    await User.add_superusers()
 
     await utils.setup_default_commands(dispatcher)
     await utils.notify_admins(config.SUPERUSER_IDS)
